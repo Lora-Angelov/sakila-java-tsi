@@ -1,5 +1,6 @@
 package com.example.sakila.entities;
 
+import com.example.sakila.partials.PartialActor;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -50,8 +51,9 @@ public class Film {
             joinColumns = {@JoinColumn(name = "film_id")},
             inverseJoinColumns = {@JoinColumn(name = "actor_id")}
     )
-    @ToString.Exclude
-    @Setter(AccessLevel.NONE)
-    private List<Actor> actors = new ArrayList<>();
+    private List<PartialActor> actors = new ArrayList<>();
 
+    public Film() {
+
+    }
 }

@@ -1,4 +1,3 @@
-/*
 package com.example.sakila.partials;
 
 import com.example.sakila.entities.Actor;
@@ -15,13 +14,13 @@ public class PartialActor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
-    private Short actorId;
+    Short actorId;
 
     @Column(name = "first_name")
-    private String firstName;
+    String firstName;
 
     @Column(name = "last_name")
-    private String lastName;
+    String lastName;
 
     public PartialActor() {
 
@@ -32,6 +31,4 @@ public class PartialActor {
         this.firstName = actor.getFirstName();
         this.lastName = actor.getLastName();
     }
-
 }
-*/

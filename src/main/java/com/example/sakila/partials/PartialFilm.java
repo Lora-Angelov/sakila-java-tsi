@@ -1,4 +1,3 @@
-/*
 package com.example.sakila.partials;
 
 import com.example.sakila.entities.Film;
@@ -12,23 +11,24 @@ import java.math.BigDecimal;
 @Table(name = "film")
 @Getter
 @Setter
+
 public class PartialFilm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
-    private Short filmId;
+    Short filmId;
 
     @Column(name = "title")
-    private String title;
+    String title;
 
     @Column(name = "language_id")
-    private Byte languageId;
+    Byte languageId;
 
     @Column(name = "rental_duration")
-    private Integer rentalDuration;
+    Integer rentalDuration;
 
     @Column(name = "rental_rate")
-    private BigDecimal rentalRate;
+    BigDecimal rentalRate;
 
     public PartialFilm() {
 
@@ -40,6 +40,4 @@ public class PartialFilm {
             this.rentalDuration = film.getRentalDuration();
             this.rentalRate = film.getRentalRate();
     }
-
 }
-*/
