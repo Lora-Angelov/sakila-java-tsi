@@ -1,8 +1,8 @@
 package com.example.sakila.controllers;
 
+import com.example.sakila.entities.Actor;
 import com.example.sakila.entities.Film;
 import com.example.sakila.input.FilmInput;
-import com.example.sakila.partials.PartialActor;
 import com.example.sakila.repositories.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -66,10 +66,10 @@ public class FilmController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/cast/{id}/")
-    public List<PartialActor> filmStarsIn (@PathVariable Short id) {
+    /*@GetMapping("/cast/{id}/")
+    public List<Actor> filmStarsIn (@PathVariable Short id) {
         Film film = filmRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Film not found."));
         return film.getActors();
-    }
+    }*/
 }

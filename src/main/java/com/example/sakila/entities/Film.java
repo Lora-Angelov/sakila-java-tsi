@@ -1,9 +1,11 @@
 package com.example.sakila.entities;
 
-import com.example.sakila.partials.PartialActor;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -48,6 +50,8 @@ public class Film {
             joinColumns = {@JoinColumn(name = "film_id")},
             inverseJoinColumns = {@JoinColumn(name = "actor_id")}
     )
-    private List<PartialActor> actors = new ArrayList<>();
+    @ToString.Exclude
+    @Setter(AccessLevel.NONE)
+    private List<Actor> actors = new ArrayList<>();
 
 }

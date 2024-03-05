@@ -1,3 +1,4 @@
+/*
 package com.example.sakila.partials;
 
 import com.example.sakila.entities.Film;
@@ -15,7 +16,7 @@ public class PartialFilm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
-    private Short Id;
+    private Short filmId;
 
     @Column(name = "title")
     private String title;
@@ -39,4 +40,6 @@ public class PartialFilm {
             this.rentalDuration = film.getRentalDuration();
             this.rentalRate = film.getRentalRate();
     }
+
 }
+*/
