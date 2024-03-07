@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.Year;
 
 @Entity
 @Table(name = "film")
@@ -21,23 +22,24 @@ public class PartialFilm {
     @Column(name = "title")
     String title;
 
+    @Column(name = "description")
+    String description;
+
+    @Column(name = "release_year")
+    Year releaseYear;
+
     @Column(name = "language_id")
     Byte languageId;
-
-    @Column(name = "rental_duration")
-    Integer rentalDuration;
-
-    @Column(name = "rental_rate")
-    BigDecimal rentalRate;
 
     public PartialFilm() {
 
     }
 
     public PartialFilm (Film film) {
-            this.title = film.getTitle();
-            this.languageId = film.getLanguageId();
-            this.rentalDuration = film.getRentalDuration();
-            this.rentalRate = film.getRentalRate();
+        this.filmId = film.getId();
+        this.title = film.getTitle();
+        this.languageId = film.getLanguageId();
+        this.description = film.getDescription();
+        this.releaseYear = film.getReleaseYear();
     }
 }

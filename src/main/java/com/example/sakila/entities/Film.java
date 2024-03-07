@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,12 @@ public class Film {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "release_year")
+    private Year releaseYear;
+
     @Column(name = "language_id")
     private Byte languageId;
 
@@ -35,6 +42,12 @@ public class Film {
 
     @Column(name = "rental_rate")
     private BigDecimal rentalRate;
+
+    @Column(name = "length")
+    private Integer length;
+
+    @Column(name = "replacement_cost")
+    private BigDecimal replacementCost;
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;

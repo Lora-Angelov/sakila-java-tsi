@@ -34,7 +34,7 @@ public class Actor {
             joinColumns = {@JoinColumn(name = "actor_id")},
             inverseJoinColumns = {@JoinColumn(name = "film_id")}
     )
-    private List<PartialFilm> films = new ArrayList<>();
+    private List<Film> films = new ArrayList<>();
 
     public Actor() {
 

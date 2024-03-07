@@ -34,9 +34,13 @@ public class FilmController {
     public Film createFilm(@Validated @RequestBody FilmInput data) {
         final var film = new Film();
         film.setTitle(data.getTitle());
+        film.setDescription(data.getDescription());
+        film.setReleaseYear(data.getReleaseYear());
         film.setLanguageId(data.getLanguageId());
         film.setRentalDuration(data.getRentalDuration());
         film.setRentalRate(data.getRentalRate());
+        film.setLength(data.getLength());
+        film.setReplacementCost(data.getReplacementCost());
         film.setLastUpdate(LocalDateTime.now());
         return filmRepository.save(film);
     }
@@ -47,6 +51,12 @@ public class FilmController {
         if (data.getTitle() != null) {
             film.setTitle(data.getTitle());
         }
+        if (data.getDescription() != null) {
+            film.setDescription(data.getDescription());
+        }
+        if (data.getReleaseYear() != null) {
+            film.setReleaseYear(data.getReleaseYear());
+        }
         if (data.getLanguageId() != null) {
             film.setLanguageId(data.getLanguageId());
         }
@@ -55,6 +65,12 @@ public class FilmController {
         }
         if (data.getRentalRate() != null) {
             film.setRentalRate(data.getRentalRate());
+        }
+        if (data.getLength() != null) {
+            film.setLength(data.getLength());
+        }
+        if (data.getReplacementCost() != null) {
+            film.setReplacementCost(data.getReplacementCost());
         }
         film.setLastUpdate(LocalDateTime.now());
         return filmRepository.save(film);
