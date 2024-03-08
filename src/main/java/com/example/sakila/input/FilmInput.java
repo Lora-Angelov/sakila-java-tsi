@@ -9,6 +9,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.Year;
+import java.util.List;
 
 @Data
 public class FilmInput {
@@ -40,4 +41,6 @@ public class FilmInput {
 
     @NotNull
     private Date lastUpdate;
+
+    private List<Short> actorId;
 }

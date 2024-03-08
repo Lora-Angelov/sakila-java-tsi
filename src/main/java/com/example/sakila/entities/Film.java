@@ -1,6 +1,7 @@
 package com.example.sakila.entities;
 
 import com.example.sakila.partials.PartialActor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -64,7 +65,8 @@ public class Film {
             joinColumns = {@JoinColumn(name = "film_id")},
             inverseJoinColumns = {@JoinColumn(name = "actor_id")}
     )
-    private List<PartialActor> actors = new ArrayList<>();
+    @JsonBackReference
+    private List<Actor> actors = new ArrayList<>();
 
     public Film() {
 

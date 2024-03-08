@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.Year;
+import java.util.List;
 
 @Entity
 @Table(name = "film")
@@ -30,6 +31,8 @@ public class PartialFilm {
 
     @Column(name = "language_id")
     Byte languageId;
+
+    //private List<PartialActor> actors;
 
     public PartialFilm() {
 

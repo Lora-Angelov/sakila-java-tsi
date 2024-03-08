@@ -8,6 +8,7 @@ import com.example.sakila.partials.PartialActor;
 import com.example.sakila.partials.PartialFilm;
 import com.example.sakila.repositories.ActorRepository;
 import com.example.sakila.repositories.FilmRepository;
+import com.example.sakila.services.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,15 +27,20 @@ public class ActorController {
     @Autowired
     FilmRepository filmRepository;
 
+    private final ActorService actorService;
+
+    public ActorController(ActorService actorService) {
+        this.actorService = actorService;
+    }
+
     @GetMapping("/actors")
     public List<Actor> getAllActors() {
-        return actorRepository.findAll();
+        return actorService.getActors();
     }
 
     @GetMapping("/actors/{id}")
     public Actor getActorById(@PathVariable Short id) {
-        return actorRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "No such actor."));
+        return actorService.getActorById(id);
     }
 
     @PostMapping("/actors")
@@ -48,7 +54,7 @@ public class ActorController {
             actor.setFilms(films);
         }
 
-        return actorRepository.save(actor);
+        return actorService.saveActor(actor);
     }
 
     @PatchMapping("/actors/{id}")
@@ -65,16 +71,15 @@ public class ActorController {
             currentFilms.addAll(updatedFilms);
         }
 
-        return actorRepository.save(actor);
+        return actorService.saveActor(actor);
     }
 
     @DeleteMapping("/actors/{id}")
     public ResponseEntity<Actor> deleteActor(@PathVariable Short id) {
-        Actor actor = actorRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Actor not found."));
+        Actor actor = actorService.getActorById(id);
 
         actor.getFilms().forEach(film -> film.getActors().remove(actor));
-        actorRepository.save(actor);
+        actorService.saveActor(actor);
 
         actorRepository.deleteById(id);
         return ResponseEntity.noContent().build();

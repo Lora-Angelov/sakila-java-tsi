@@ -1,6 +1,7 @@
 package com.example.sakila.entities;
 
 import com.example.sakila.partials.PartialFilm;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,10 +35,19 @@ public class Actor {
             joinColumns = {@JoinColumn(name = "actor_id")},
             inverseJoinColumns = {@JoinColumn(name = "film_id")}
     )
+    @JsonManagedReference
     private List<Film> films = new ArrayList<>();
 
     public Actor() {
 
+    }
+
+    public Actor(Short Id, String firstName, String lastName, ArrayList<Film> films) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        //this.FilmIds = filmIds;
+        this.films = films;
+        this.Id = Id;
     }
 
 }

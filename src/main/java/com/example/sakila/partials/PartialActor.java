@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "actor")
 @Getter
@@ -21,6 +23,8 @@ public class PartialActor {
 
     @Column(name = "last_name")
     String lastName;
+
+    //private List<PartialFilm> films;
 
     public PartialActor() {
 
